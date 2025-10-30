@@ -26,13 +26,14 @@ main{
     min-height: 60vh;
     background-color: #fff;
     margin: 5vh;
-    justify-content: space-between;
+    justify-content: flex-start;
     flex-wrap: wrap;
+    gap: 10px;
     padding: 10px;
 }
 .item{
-    width: 15%;
-    min-height: 10%;
+    width: calc(20% - 10px);
+    min-height: 35vh;
     padding-top: 5px;
     border: solid 1px #000;
     max-height: 50%;
@@ -48,4 +49,14 @@ img{
 }
 .price{
     text-align: center;
+}
+.button{
+    text-align: center;
+    margin-top: 3vh;
+}
+.button > button{
+    background-color: #0009ab;
+    padding: 7px;
+    color: white;
+    border: none;
 }
