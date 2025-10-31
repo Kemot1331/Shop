@@ -23,13 +23,15 @@ header{
 main{
     display: flex;
     width: 80%;
-    min-height: 100vh;
+    height: 80vh;
     background-color: #fff;
     margin: 5vh;
     justify-content: flex-start;
     flex-wrap: wrap;
     gap: 10px;
     padding: 10px;
+
+    overflow-y: auto;
 }
 .item{
     width: calc(20% - 10px);
@@ -53,6 +55,9 @@ main{
 .button{
     text-align: center;
     margin-top: 3vh;
+}
+.addButton{
+    text-align: center;
 }
 .addButton > button{
     background-color: #0009ab;
