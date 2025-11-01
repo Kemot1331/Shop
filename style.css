@@ -115,3 +115,7 @@ button[type=submit]{
     color: white;
     border: none;
 }
+a{
+    color: black;
+    text-decoration: none;
+}
