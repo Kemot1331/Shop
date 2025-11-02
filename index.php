@@ -1,0 +1,74 @@
+
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MyShop</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h2>MyShop</h2>
+        <div class="cart">
+            <a href="cart.html">
+                <span>Koszyk</span>
+                <span>(1)</span>
+                <span>0 zł</span>
+            </a>
+        </div>
+    </header>
+    <section class="mainContainer">
+        <main>
+            <?php 
+                include("dbConnect.php");
+
+                $sql = "SELECT name, imgURL, price FROM Products";
+                $result = $conn->query($sql);
+
+while ($row = $result->fetch_assoc()) {
+    $name = htmlspecialchars($row['name']);
+    $price = number_format($row['price'], 2, '.', '');
+    $imgURL = htmlspecialchars($row['imgURL']);
+    echo "
+        <div class=\"item\">
+            <div class=\"name\">
+                <span>{$name}</span>
+            </div>
+            <div class=\"img\">
+                <img src=\"{$imgURL}\" alt=\"{$name}\">
+            </div>
+            <div class=\"price\">
+                <span>Price: </span>
+                <span>{$price}</span>
+                <span>zł</span>
+            </div>
+            <div class=\"addButton\">
+                <button>Add to cart</button>
+            </div>
+        </div>
+    ";
+}
+            ?>
+            <div class="item">
+                <div class="name">
+                    <span>Ołówek</span>
+                </div>
+                <div class="img">
+                    <img src="https://cdn.pixabay.com/photo/2016/04/01/12/00/pencil-1300460_1280.png" alt="ołówek">
+                </div>
+                <div class="price">
+                    <span>Price: </span>
+                    <span>1.50</span>
+                    <span>zł</span>
+                </div>
+                <div class="addButton">
+                    <button>Add to cart</button>
+                </div>
+            </div>
+            
+        </main>
+    </section>
+    <footer></footer>
+</body>
+</html>
