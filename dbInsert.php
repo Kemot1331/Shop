@@ -5,7 +5,7 @@
     $inputUrlImage = $_POST['urlImage'];
     $inputPrice = $_POST['price'];
 
-    $sql = "INSERT INTO Products (name, imgURL, price) 
+    $sql = "INSERT INTO product (name, imgURL, price) 
     VALUES('" . $inputName. "','" . $inputUrlImage. "','" . $inputPrice. "');";
     $result = $conn->query($sql);
 ?>

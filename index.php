@@ -9,7 +9,7 @@
 </head>
 <body>
     <header>
-        <h2>MyShop</h2>
+        <h2><a href="index.php">MyShop</a></h2>
         <div class="cart">
             <a href="cart.html">
                 <span>Koszyk</span>
@@ -23,7 +23,7 @@
             <?php 
                 include("dbConnect.php");
 
-                $sql = "SELECT name, imgURL, price FROM Products";
+                $sql = "SELECT name, imgURL, price FROM product";
                 $result = $conn->query($sql);
 
                 while ($row = $result->fetch_assoc()) {
@@ -66,7 +66,6 @@
                     <button>Add to cart</button>
                 </div>
             </div>
-            
         </main>
     </section>
     <footer></footer>
