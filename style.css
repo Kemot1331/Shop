@@ -115,7 +115,7 @@ form{
     justify-content: space-between;
     margin-bottom: 20px;
 }
-button[type=submit]{
+input[type=submit]{
     background-color: #0009ab;
     padding: 15px;
     font-size: 25px;
@@ -125,4 +125,12 @@ button[type=submit]{
 a{
     color: black;
     text-decoration: none;
+}
+form > a{
+    text-align: center;
+    font-size: 20px;
+    margin-top: 10px;
+}
+form > a:hover{
+    text-decoration: underline;
 }

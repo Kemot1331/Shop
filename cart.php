@@ -10,7 +10,7 @@
     <header>
         <h2><a href="index.php">MyShop</a></h2>
         <div class="cart">
-            <a href="cart.html">
+            <a href="cart.php">
                 <span>Koszyk</span>
                 <span>(1)</span>
                 <span>0 zł</span>
@@ -42,6 +42,55 @@
                     <button>X</button>
                 </div>
             </section>
+
+            <?php 
+                include("dbConnect.php");
+
+                $sql = "SELECT cart.id, name, imgURL, quantity, price FROM cart
+                        JOIN product ON cart.product_id = product.id;
+                ";
+                $result = $conn->query($sql);
+                
+                if(mysqli_num_rows($result) == 0){
+                    echo "Cart is empty";
+                }
+                else{
+                    $count = 1;
+                    while($row = $result->fetch_assoc()){
+                        $name = $row['name'];
+                        $imgURL = $row['imgURL'];
+                        $quantity = $row['quantity'];
+                        $price = $row['price'];
+                        echo "
+                            <section class=\"cartItemContainer\">
+                            <div class=\"itemCount\">
+                                <span>".$count."</span>
+                            </div>
+                            <div class=\"cartItemImg\">
+                                <img src=\"".$imgURL."\" alt=\"\">
+                            </div>
+                            <div class=\"cartItemName\">
+                                <span>".$name."</span>
+                            </div>
+                            <div class=\"quantity\">
+                                <button>-</button>
+                                <span>".$quantity."</span>
+                                <button>+</button>
+                            </div>
+                            <div class=\"price\">
+                                <span>".$price."</span>
+                                <span>zł</span>
+                            </div>
+                            <div class=\"deleteButton\">
+                                <button>X</button>
+                            </div>
+                        </section>
+                        ";
+                        $count++;
+                    }
+                }
+                
+            ?>
         </main>
     </div>
 </body>

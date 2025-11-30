@@ -11,7 +11,7 @@
     <header>
         <h2><a href="index.php">MyShop</a></h2>
         <div class="cart">
-            <a href="cart.html">
+            <a href="cart.php">
                 <span>Koszyk</span>
                 <span>(1)</span>
                 <span>0 zł</span>
