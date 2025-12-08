@@ -1,7 +1,7 @@
 <?php 
-    $adress = "192.168.1.100";
-    $user = "user";
-    $password = "user";
+    $adress = "localhost";
+    $user = "root";
+    $password = "";
     $db = "Shop";
 
     $conn = mysqli_connect($adress, $user, $password, $db);

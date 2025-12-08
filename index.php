@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -23,13 +22,14 @@
             <?php 
                 include("dbConnect.php");
 
-                $sql = "SELECT name, imgURL, price FROM product";
+                $sql = "SELECT name, imgURL, price, stock FROM product";
                 $result = $conn->query($sql);
 
                 while ($row = $result->fetch_assoc()) {
                     $name = htmlspecialchars($row['name']);
                     $price = number_format($row['price'], 2, '.', '');
-                    $imgURL = htmlspecialchars($row['imgURL']);
+		    $imgURL = htmlspecialchars($row['imgURL']);
+		    $stock = htmlspecialchars($row['stock']);
                     echo "
                         <div class=\"item\">
                             <div class=\"name\">
@@ -42,6 +42,10 @@
                                 <span>Price: </span>
                                 <span>{$price}</span>
                                 <span>zł</span>
+                            </div>
+                            <div class=\"stock\">
+                                <span>On stock: </span>
+                                <span>{$stock}</stock>
                             </div>
                             <div class=\"addButton\">
                                 <button>Add to cart</button>
